@@ -156,6 +156,7 @@ class ListSpec extends FlatSpec with PropertyChecks {
 
   it should "for all l: List[Int] ==> length(drop(l, n)) == length(l) - n" in {
     forAll("l") { l: List[Int] =>
+
       val len = length(l)
       forAll (Gen.chooseNum(0, len)) { n: Int =>
         assertResult(len - n)(length(drop(l, n)))
